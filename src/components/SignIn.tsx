@@ -68,7 +68,7 @@ export const SignIn: React.FC = () => {
     return (
         <div>
             <Button
-                variant="contained"
+                variant="text"
                 size="small"
                 onClick={handleOpen}
             >

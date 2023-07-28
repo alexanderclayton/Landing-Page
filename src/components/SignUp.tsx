@@ -49,7 +49,7 @@ export const SignUp: React.FC = () => {
     return (
         <div>
             <Button
-                variant="text"
+                variant="outlined"
                 size="small"
                 onClick={handleOpen}
             >
