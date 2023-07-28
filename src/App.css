@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 :root {
   --black: black;
   --white: white;
@@ -7,7 +9,33 @@ body {
   background-color: var(--white);
 }
 
+/*Logo Styles*/
 .dialog {
   min-width: 300px;
   max-width: 80px;
+}
+
+.logo {
+  color: #1976d2;
+  font-family: 'Lobster', cursive;
+  display: flex;
+}
+
+.logo h1 {
+  margin-left: -70px;
+  margin-top: 35px;
+}
+
+.logo h2 {
+  margin-top: 40px;
+}
+
+/*Landing Page Styles*/
+.landing-page {
+  display: flex;
+  justify-content: space-between;
+}
+
+.register {
+  display: flex;
 }
