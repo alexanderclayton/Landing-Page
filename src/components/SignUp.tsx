@@ -3,14 +3,19 @@ import { useNavigate } from "react-router-dom"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../firebase/firebaseAuth"
 import { FirebaseError } from 'firebase/app'
+import { TextField, Button, Dialog, DialogContentText } from "@mui/material"
 
 export const SignUp: React.FC = () => {
 
     const [email, setEmail] = useState<string>("")
     const [password, setPassword] = useState<string>("")
     const [message, setMessage] = useState<string>("")
+    const [open, setOpen] = useState<boolean>(false)
 
     const navigate = useNavigate()
+
+    const handleOpen = () => setOpen(true)
+    const handleClose = () => setOpen(false)
 
     const handleEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
@@ -43,20 +48,46 @@ export const SignUp: React.FC = () => {
 
     return (
         <div>
-            <input
-                type="text"
-                placeholder="Email..."
-                onChange={handleEmailChange}
-                value={email}
-            />
-            <input
-                type="password"
-                placeholder="Password..."
-                onChange={handlePasswordChange}
-                value={password}
-            />
-            <button onClick={createAccount}>Create Account</button>
-            <h4>{message}</h4>
+            <Button
+                variant="text"
+                size="small"
+                onClick={handleOpen}
+            >
+                Create Account
+            </Button>
+            <Dialog
+                open={open}
+                onClose={handleClose}
+            >
+                <TextField
+                    type="text"
+                    placeholder="Email..."
+                    label="Email"
+                    onChange={handleEmailChange}
+                    value={email}
+                    style={{ margin: "10px", width: "16rem" }}
+                />
+                <TextField
+                    type="password"
+                    placeholder="Password..."
+                    label="Password"
+                    onChange={handlePasswordChange}
+                    value={password}
+                    style={{ margin: "10px", width: "16rem" }}
+                />
+                <Button
+                    variant="contained"
+                    onClick={createAccount}
+                    style={{ margin: "10px", width: "16rem" }}
+                >
+                    Create Account
+                </Button>
+                <DialogContentText
+                    style={{ margin: "10px", width: "16rem" }}
+                >
+                    {message}
+                </DialogContentText>
+            </Dialog>
         </div>
     )
 }

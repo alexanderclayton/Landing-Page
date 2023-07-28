@@ -1,6 +1,7 @@
 import { signOut } from 'firebase/auth'
 import { auth } from '../firebase/firebaseAuth'
 import { FirebaseError } from 'firebase/app'
+import Button from '@mui/material/Button/Button'
 
 
 
@@ -18,7 +19,7 @@ export const Logout: React.FC = () => {
     }
   return (
     <div>
-        <button onClick={logout}>Logout</button>
+        <Button variant="text" size="small" onClick={logout}>Logout</Button>
     </div>
   )
 }
