@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom"
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { auth } from "../firebase/firebaseAuth"
+import { SignIn } from "../components/SignIn"
+import { SignUp } from "../components/SignUp"
 import { Logout } from "../components/Logout"
 
 export const LandingPage: React.FC = () => {
@@ -11,8 +12,8 @@ export const LandingPage: React.FC = () => {
         <div>
             {!user ? (
                 <>
-                    <Link to="/signin">Sign In</Link>
-                    <Link to="/signup">Sign Up</Link>
+                    <SignIn />
+                    <SignUp />
                 </>
             ) : (
                 <Logout />

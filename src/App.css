@@ -1,0 +1,13 @@
+:root {
+  --black: black;
+  --white: white;
+}
+
+body {
+  background-color: var(--white);
+}
+
+.dialog {
+  min-width: 300px;
+  max-width: 80px;
+}
